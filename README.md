@@ -1,80 +1,184 @@
-# Hangman — Word Guessing Game (CLI)
+# Word Guessing Game
 
-A command-line word-guessing game built in pure Python (no external
-dependencies). Guess the hidden word one letter at a time before the
-hangman drawing is complete!
+A simple, interactive console-based word-guessing game written in Python.
+
+![Python](https://img.shields.io/badge/Python-3.x-blue?logo=python&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-green)
+![Status](https://img.shields.io/badge/Status-Completed-brightgreen)
+
+## Overview
+
+Word Guessing Game is a beginner-friendly Python project in which the player tries to uncover a randomly selected fruit by guessing individual characters. Each round selects one word from a fixed list and displays a hint. The player has four lives and loses one each time an incorrect character is guessed.
 
 ## Features
 
-- **Three difficulty levels** (easy / medium / hard), each with its own word pool and hints
-- **ASCII-art hangman** that progresses with each wrong guess
-- **Hints** shown at the start of each round
-- **Persistent scoreboard** (wins, losses, streaks) saved to `scores.json`
-- **Custom word bank** — edit `words.json` to add your own words/categories
-- **Input validation** and graceful handling of repeated guesses / interrupts (Ctrl+C)
-- **Replay loop** — play as many rounds as you like in one session
+- Random word selection each round
+- Word-specific hints
+- Four lives per game
+- Character-based guessing with underscore placeholders for hidden letters
+- Win and lose conditions
+- Pure Python implementation with no external dependencies
 
-## Requirements
+## Demo
 
-- Python 3.7+
-- No third-party packages required (standard library only)
+**Starting the game**
 
-## Getting Started
+```text
+Hint: A red fruit
+_ _ _ _ _
+Guess a character:
+```
 
-```bash
-# Clone the repository
-git clone https://github.com/<your-username>/word-guessing-game.git
-cd word-guessing-game
+**Incorrect guess**
 
-# Run the game
-python3 hangman.py
+```text
+Guess a character: z
+_ _ _ _ _
+Wrong! 3 lives left
+```
+
+**Winning**
+
+```text
+You won!
+```
+
+**Losing**
+
+```text
+You lost! The word was 'apple'
 ```
 
 ## How to Play
 
-1. Choose a difficulty level (Easy, Medium, or Hard).
-2. You'll see a hint and the number of letters in the word.
-3. Guess one letter at a time.
-4. Each incorrect guess adds a piece to the hangman drawing.
-5. Guess all letters correctly before 6 wrong guesses to win!
-6. Choose to play again — your stats persist across sessions.
+1. Run the Python program.
+2. Read the displayed hint.
+3. Enter one character when prompted.
+4. Correct characters are revealed in their corresponding positions.
+5. An incorrect character costs one life.
+6. You have four lives in total.
+7. Reveal the complete word before running out of lives to win.
+
+## Word List
+
+| Fruit  | Hint                                   |
+|--------|-----------------------------------------|
+| Apple  | A red fruit                             |
+| Kiwi   | Green inside, brown outside             |
+| Mango  | King of fruits                          |
+| Orange | Its colour is the name of the fruit     |
+
+## How It Works
+
+```text
+START
+  │
+  ▼
+Select random word
+  │
+  ▼
+Display its hint
+  │
+  ▼
+Hide word with underscores
+  │
+  ▼
+Player guesses a character
+  │
+  ├── Correct → Reveal character
+  │
+  └── Wrong   → Lose one life
+  │
+  ▼
+Is the word fully guessed?
+  ├── Yes → You win
+  └── No  → Are lives at 0?
+              ├── Yes → You lose
+              └── No  → Continue guessing
+```
+
+## Getting Started
+
+### Prerequisites
+
+Python 3.x is required. Verify your installation:
+
+```bash
+python --version
+```
+
+### Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/YOUR-USERNAME/word-guessing-game.git
+cd word-guessing-game
+```
+
+### Usage
+
+Run the game:
+
+```bash
+python word_game.py
+```
 
 ## Project Structure
 
-```
+```text
 word-guessing-game/
-├── hangman.py      # Main game (classes, game loop, CLI helpers)
-├── words.json       # Word bank by difficulty (auto-created if missing)
-├── scores.json       # Persistent scoreboard (auto-created; gitignored)
+├── word_game.py
 ├── README.md
 ├── LICENSE
-└── .gitignore
+└── screenshots/
+    ├── game-start.png
+    ├── gameplay.png
+    └── game-result.png
 ```
 
-## Customizing the Word Bank
+## Screenshots
 
-Edit `words.json` to add your own words and hints:
+Add screenshots to the `screenshots/` folder, or remove this section if none are available yet.
 
-```json
-{
-  "easy": {
-    "apple": "A common fruit"
-  },
-  "medium": { ... },
-  "hard": { ... }
-}
-```
+| Game Start | Gameplay | Result |
+|---|---|---|
+| ![Game Start](screenshots/game-start.png) | ![Gameplay](screenshots/gameplay.png) | ![Game Result](screenshots/game-result.png) |
 
-## Python Concepts Demonstrated
+## Roadmap
 
-- Object-oriented design (classes: `WordBank`, `Scoreboard`, `HangmanGame`)
-- File I/O and JSON serialization
-- Exception handling (`try`/`except`, `KeyboardInterrupt`)
-- Properties and encapsulation
-- The `random` module
-- String formatting and set operations
-- Input validation loops
+Planned or possible future improvements:
+
+- [ ] Expand word list and add categories
+- [ ] Prevent repeated guesses
+- [ ] Add difficulty levels
+- [ ] Add a scoring system
+- [ ] Support multiple rounds
+- [ ] Improve input validation
+- [ ] Add a graphical user interface
+- [ ] Add sound effects
+
+## What This Project Demonstrates
+
+- Working with Python lists and the `random` module
+- Handling user input and validation
+- `for` and `while` loop control flow
+- Conditional logic and basic game-state management
+- String manipulation for masking and revealing characters
+
+## Technologies
+
+- Python 3
+- Python Standard Library (`random`)
+
+No external packages are required.
 
 ## License
 
-This project is licensed under the MIT License — see [LICENSE](LICENSE) for details.
+This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
+
+## Author
+
+**Your Name** — replace with your name or GitHub handle.
+
+If you found this project useful, consider starring the repository.
