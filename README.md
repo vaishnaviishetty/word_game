@@ -179,6 +179,6 @@ This project is licensed under the MIT License. See [LICENSE](LICENSE) for detai
 
 ## Author
 
-**Your Name** — replace with your name or GitHub handle.
+vaishnavi
 
 If you found this project useful, consider starring the repository.
