@@ -1,0 +1,23 @@
+{
+  "easy": {
+    "python": "A popular programming language",
+    "coding": "The act of writing computer programs",
+    "laptop": "A portable computer",
+    "coffee": "A popular caffeinated drink",
+    "guitar": "A stringed musical instrument"
+  },
+  "medium": {
+    "function": "A reusable block of code",
+    "variable": "A named container for data",
+    "algorithm": "A step-by-step problem-solving procedure",
+    "database": "An organized collection of data",
+    "keyboard": "An input device with keys"
+  },
+  "hard": {
+    "recursion": "A function calling itself",
+    "encapsulation": "Bundling data with methods in OOP",
+    "polymorphism": "Many forms, an OOP concept",
+    "inheritance": "A class deriving from another class",
+    "asynchronous": "Not occurring at the same time"
+  }
+}
